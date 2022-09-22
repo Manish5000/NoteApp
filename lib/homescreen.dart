@@ -1,6 +1,6 @@
 import 'package:boscassignment/models/note.dart';
 import 'package:boscassignment/models/note_operation.dart';
-import 'package:boscassignment/widgets/dialog.dart';
+import 'package:boscassignment/widgets/dialogue.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,12 +12,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String? getvalue;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
        floatingActionButton: FloatingActionButton(
+        foregroundColor: Colors.green,
+        backgroundColor: Colors.white,
         child: Icon(Icons.add),
         onPressed: (){
           Navigator.push(context, MaterialPageRoute(builder: ((context) => Showdialog())));
@@ -25,13 +27,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar: AppBar(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        backgroundColor: Colors.blue,
-        title: Text('Notes App'),
+        backgroundColor: Colors.white,
+        title: Text('Notes App',style: TextStyle(color: Colors.black),),
         centerTitle: true,
-        elevation: 0,
+        elevation: 3,
       ),
      
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.green,
       body: Consumer<NotesOperation>(
         builder: (context, NotesOperation data, child)  {
           return ListView.builder(
@@ -57,7 +59,7 @@ class NotesCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(15),
       padding: EdgeInsets.all(15),
-      height: 150,
+      height: MediaQuery.of(context).size.height*0.2,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15)
